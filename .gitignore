@@ -3,4 +3,5 @@
 .idea
 *.git
 __pycache__
+.venv
 *.session
