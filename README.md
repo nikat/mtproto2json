@@ -10,9 +10,9 @@ More info on MTProto here: https://core.telegram.org/mtproto
 
 Telegram Messenger: https://telegram.org
 
-*mtproto2json will be updated to support MTProto2.0 in Jan 2018.*
-
 **mtproto2json** is written in Python 3.6 and has only one external dependency: **pyaes**.
+
+*mtproto2json will be updated to support MTProto2.0 in Jan 2018.*
 
 # Installation #
 
@@ -55,7 +55,18 @@ python3.6 -m pip install pyaes
  9. Paste the following JSON code to your console: 
  
  ```{"message":{"_cons":"messages.getDialogs","offset_date":0,"offset_id":0,"offset_peer":{"_cons":"inputPeerEmpty"},"limit":0}}```
-
+ 
+ 10. You should receive an answer to your *messages.getDialogs* request with id=1 and client updates with id=0.
+ 
+ ```
+ {"id": 0, "message": {"_cons": "updates", "updates": [{"_cons": "updateNewChannelMessage", "message": {"_cons": "message", "id": /...
+ {"id": 0, "message": {"_cons": "updateShort", "update": {"_cons": "updateChatUserTyping", "chat_id": /...
+ {"id": 1, "message": {"_cons": "messages.dialogsSlice", "count": 452, "dialogs": [{"_cons": "dialog", "pinned": {"_cons": "true"}, "peer": { /...
+{"id": 0, "message": {"_cons": "updates", "updates": [{"_cons": "updateNewChannelMessage", "message": {"_cons": "message", "id":  /...
+ ```
+ 
+ 11. Examine *scheme.tl* to learn functions, parameters and types for requests and responses.
+ 
 # Detailed description #
 
 ## signin-cli.py ##
