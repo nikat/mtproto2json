@@ -16,8 +16,12 @@ Telegram Messenger: https://telegram.org
 
 # Installation #
 
+## Prerequisites ##
+
 * python 3.6 or above
 * pyaes
+
+*mtproto2json is not platform-dependent and would work on either Linux, OSX or Windows*
 
 ## Installing Python 3.6 on Ubuntu 16.10 and newer ##
 
