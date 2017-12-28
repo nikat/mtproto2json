@@ -54,7 +54,8 @@ python3.6 -m pip install pyaes
  8. Paste the output saved at step 6 to stdin
  9. Paste the following JSON code to your console: 
  
- ```{"message":{"_cons":"messages.getDialogs","offset_date":0,"offset_id":0,"offset_peer":{"_cons":"inputPeerEmpty"},"limit":0}}
+ ```
+ {"message":{"_cons":"messages.getDialogs","offset_date":0,"offset_id":0,"offset_peer":{"_cons":"inputPeerEmpty"},"limit":0}}
  ```
  
  10. You should receive an answer to your *messages.getDialogs* request with id=1 and client updates with id=0.
