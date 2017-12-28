@@ -34,7 +34,7 @@ python3.6 -m pip install pyaes
  2. Start **streamsjon.py** in a dedicated console
  3. Run **signin-cli.py**
  4. Enter your phone number (for example 79001002030), api parameters, code and password.
- 5. Output should look like `{"id": 1, "session": {"session_id": <...>, "auth_key": "<...>"}}
+ 5. Output should look like `{"id": 1, "session": {"session_id": <...>, "auth_key": "<...>"}}`
  6. Save this output as a single string to your clipboard
  7. run **nc localhost 1543**
  8. Paste the output saved at step 6 to stdin
