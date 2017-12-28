@@ -37,7 +37,9 @@ python3.6 -m pip install pyaes
  5. Save output
  6. run **nc localhost 1543**
  7. Paste output
- 8. Paste the following JSON code to your console: `{"message":{"_cons":"messages.getDialogs","offset_date":0,"offset_id":0,"offset_peer":{"_cons":"inputPeerEmpty"},"limit":0}}`
+ 8. Paste the following JSON code to your console: 
+ 
+ ```{"message":{"_cons":"messages.getDialogs","offset_date":0,"offset_id":0,"offset_peer":{"_cons":"inputPeerEmpty"},"limit":0}}```
 
 ## signin-cli.py ##
 
