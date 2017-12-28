@@ -149,7 +149,7 @@ Example:
   }
 }
 ```
-* note that since **mtproto2json** expects one JSON object per line, you will have to omit line breaks in your JSON objects *
+*note that since **mtproto2json** expects one JSON object per line, you will have to omit line breaks in your JSON objects*
 
 ## id ##
 
