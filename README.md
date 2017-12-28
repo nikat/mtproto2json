@@ -28,14 +28,16 @@ python3.6 -m pip install --upgrade pip
 python3.6 -m pip install pyaes
 ```
 
-# Usage #
+# Quickstart example #
 
  1. Sign in on https://my.telegram.org and obtain your **api_id** and **api_hash** as described here: https://core.telegram.org/api/obtaining_api_id.
- 1. Start **streamsjon.py** in a dedicated console or in background using your favourive supervisor.
- 1. Run **signin-cli.py**, by default it will connect to **streamjson.py** on `localhost:1543`.
- 1. Enter your phone number, api parameters, code and password.
- 1. Save output to **my_session.json** file
- 1. When you pass **my_session.json** contents to **streamsjon.py**, your session is started.
+ 2. Start **streamsjon.py** in a dedicated console
+ 3. Run **signin-cli.py**
+ 4. Enter your phone number (for example 79001002030), api parameters, code and password.
+ 5. Save output
+ 6. run **nc localhost 1543**
+ 7. Paste output
+ 8. Paste the following JSON code to your console: `{"message":{"_cons":"messages.getDialogs","offset_date":0,"offset_id":0,"offset_peer":{"_cons":"inputPeerEmpty"},"limit":0}}`
 
 ## signin-cli.py ##
 
