@@ -41,6 +41,8 @@ python3.6 -m pip install pyaes
  
  ```{"message":{"_cons":"messages.getDialogs","offset_date":0,"offset_id":0,"offset_peer":{"_cons":"inputPeerEmpty"},"limit":0}}```
 
+# Detailed description #
+
 ## signin-cli.py ##
 
 ```text
@@ -65,9 +67,7 @@ optional arguments:
   --lang-code LANG_CODE             default: `en`)
 ```
 
-
 ## streamjson.py ##
-
 
 ```text
 Usage: streamjson.py [-h] [--host HOST] [--port PORT] [--verbose]
