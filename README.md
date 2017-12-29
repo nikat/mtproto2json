@@ -10,15 +10,19 @@ Telegram is a cloud-based instant messaging service. https://telegram.org
 
 ## Why would anyone need this proxy? ##
 
-Telegram uses a complicated encryption scheme called MTProto. While it is open and documented, you might want to create a simple utility, to prototype an application or just to play with new Telegram API methods without having to implement binary serialization or encryption.
+Telegram uses a complicated encryption scheme called MTProto. While it is open and documented, you might want to create a simple utility, to prototype an application or just to play with new Telegram API methods without having to implement binary serialization and encryption.
 
 More info on MTProto here: https://core.telegram.org/mtproto
 
-**mtproto2json** implements MTProto for you, you only need to establish a TCP connection and a JSON parser to start creating your app.
+**mtproto2json** implements MTProto for you, you only need to establish a JSON/TCP connection to start writing your app and it's usually very easy to do in any language or framework.
+
+For example you can start developing your application with **mtproto2json** and switch to native MTProto implementation later.
 
 ## There are libraries implementing MTProto, why would I use mtproto2json? ##
 
-**mtproto2json** is not a library, it's a service. You can use it with applications written in any language or framework.
+**mtproto2json** is not a library, it's a service. You can use it with applications written in any language or framework and sometimes it's even simpler than including a library.
+
+JSON is a very common and a language-independent data format. Almost every platform, programming language and framework has simple and well-known ways to use JSON objects. Also JSON objects are much easier to read, test and debug than encrypted binary MTProto objects.
 
 Another reason to use **mtproto2json** over other MTProto implementations is that the Telegram TL scheme is constantly updated. Other libraries are slow to catch with new methods and new features.
 
