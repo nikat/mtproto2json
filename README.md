@@ -14,8 +14,6 @@ Telegram Messenger: https://telegram.org
 
 **mtproto2json** is written in Python 3.6 and has only one external dependency: **pyaes**.
 
-*mtproto2json will be updated to support MTProto2.0 in Jan 2018.*
-
 # Installation #
 
 ## Prerequisites ##
@@ -429,3 +427,5 @@ Another example:
   }
 }
 ```
+
+*NOTE: mtproto2json will be updated to support MTProto2.0 in Jan 2018.*
