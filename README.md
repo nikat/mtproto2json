@@ -199,7 +199,7 @@ Example:
 
 ## id ##
 
-Numeric. Optional, defaults to 1 when ommitted.
+Numeric. Optional, defaults to 1 when omitted.
 
 ## server ##
 
