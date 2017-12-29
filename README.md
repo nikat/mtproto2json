@@ -14,6 +14,8 @@ Telegram uses a complicated encryption scheme called MTProto. *More info on MTPr
 
 While MTProto is open and documented, it uses binary serialization and encryption and is	comparatively difficult to implement.
 
+**mtproto2json** implements MTProto for you, you only need to establish a JSON/TCP connection to start writing your app and it's usually very easy to do in any language or framework.
+
 You might want to create a simple utility, to prototype an application or just to play with new Telegram API methods without having to implement MTProto. **mtproto2json** allows your application to use JSON/TCP streams instead.
 
 You could also start developing your application with **mtproto2json** and switch to native MTProto implementation later.
@@ -21,8 +23,6 @@ You could also start developing your application with **mtproto2json** and switc
 ## What is JSON? ##
 
 JSON is a very common and a language-independent data format. Almost every platform, programming language and framework has simple and well-known ways to use JSON objects. JSON objects are human-readable, are much easier test and debug than encrypted binary MTProto objects.
-
-**mtproto2json** implements MTProto for you, you only need to establish a JSON/TCP connection to start writing your app and it's usually very easy to do in any language or framework.
 
 ## There are libraries implementing MTProto, why would I use mtproto2json? ##
 
