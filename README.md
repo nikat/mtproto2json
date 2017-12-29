@@ -46,7 +46,7 @@ python3.6 -m pip install pyaes
 
 # Quickstart example #
 
- 1. If you don't have a Telegram account yet, install one of the official clients at https://telegram.org/apps and create your account. 
+ 1. If you don't have a Telegram account yet, install one of the official clients (https://telegram.org/apps) and create an account. 
  2. Sign in on https://my.telegram.org and obtain **api_id** and **api_hash** as described here: https://core.telegram.org/api/obtaining_api_id.
  3. Install Python3.6, pyaes and netcat
  4. Download and unpack mtproto2json using either git or this link: https://github.com/nikat/mtproto2json/archive/master.zip
