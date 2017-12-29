@@ -1,6 +1,26 @@
-*Warning!!! This is an early prototype library. User must expect serious security and stability issues while using it.*
+# FAQ #
 
-# Description #
+## What is mtproto2json? ##
+
+**mtproto2json** is a proxy between Telegram client and Telegram API. It uses JSON/TCP to talk to clients and MTProto to talk to Telegram API servers.
+
+## What is Telegram? ##
+
+Telegram is a cloud-based instant messaging service.
+
+## Why would you need a proxy? ##
+
+Telegram uses a complicated encryption scheme called MTProto. While it is open and documented, you might want co create a simple utility, a prototype application or to play with new telegram methods without having to implement binary serialization or encryption. 
+
+**mtproto2json** does it for you, you only need to establish a TCP connection and a JSON parser to start creating your app.
+
+## There are libraries implementing MTProto, why would I use mtproto2json? ##
+
+First, **mtproto2json** is not a library, it's a server. You can use it with applications written in any language or framework.
+
+Second, the Telegram TL scheme is constantly updated. Libraries are slow to catch with new methods and new features. **mtproto2json** depends on a very small subset of scheme.tl methods and types, so we don't have to rewrite or regenerate the library code to follow **scheme.tl** updates.
+
+# Description # 
 
 This utility implements encryption and binary serialization layers of **MTProto** client protocol for **Telegram messenger**. It allows developing Telegram client applications in a simple way in any programming language using only a JSON parser and a TCP connection.
 
@@ -223,8 +243,6 @@ from this client. *_seqno* is optional, next odd integer is used when it is omit
 *You can always obtain the most recent scheme.tl from Telegram Desktop source code repository: https://github.com/telegramdesktop/tdesktop/blob/master/Telegram/Resources/scheme.tl*
 
 *Please update TL_LAYER in localsettings.py if you choose to update the TL Scheme.*
-
-*streamjson.py itself relies on a very small subset of scheme.tl methods and types so feel free to update it, most certainly it will work*
 
 Request example:
 
