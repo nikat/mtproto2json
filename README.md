@@ -18,7 +18,7 @@ Telegram Messenger: https://telegram.org
 
 ## Prerequisites ##
 
-* python 3.6 or above
+* Python 3.6 or above
 * pyaes
 
 *mtproto2json is not platform-dependent and would work on either Linux, OSX or Windows*
@@ -26,43 +26,46 @@ Telegram Messenger: https://telegram.org
 ## Installing Python 3.6 on Ubuntu 16.10 and newer ##
 
 ```commandline
-sudo apt update
 sudo apt install python3.6 python3-pip
 ```
 
 ## Installing Python 3.6 on Ubuntu 16.04 and older ##
 
 ```commandline
-apt-get install software-properties-common python-software-properties
-add-apt-repository ppa:jonathonf/python-3.6
-apt-get update
-apt-get install python3.6 python3-pip
+sudo apt-get install software-properties-common python-software-properties
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6 python3-pip
 ```
 
-## pyaes ##
+## Installing pyaes ##
 
 ```commandline
-python3.6 -m pip install --upgrade pip
 python3.6 -m pip install pyaes
 ```
 
 # Quickstart example #
 
- 1. Sign in on https://my.telegram.org and obtain your **api_id** and **api_hash** as described here: https://core.telegram.org/api/obtaining_api_id.
- 2. Start **streamsjon.py** in a dedicated console
- 3. Run **signin-cli.py**
- 4. Enter your phone number (for example 79001002030), api parameters, code and password.
- 5. Output should look like `{"id": 1, "session": {"session_id": <...>, "auth_key": "<...>"}}`
- 6. Save this output as a single string to your clipboard
- 7. run **nc localhost 1543**
- 8. Paste the output saved at step 6 to stdin
- 9. Paste the following JSON code to your console: 
+ 1. If you don't have a Telegram account yet, install one of the official clients at https://telegram.org/apps and create your account. 
+ 2. Sign in on https://my.telegram.org and obtain **api_id** and **api_hash** as described here: https://core.telegram.org/api/obtaining_api_id.
+ 3. Install Python3.6, pyaes, git and netcat
+ 4. `git clone https://github.com/nikat/mtproto2json.git`
+ 5. Start **streamsjon.py** and let it run
+ 6. Open another console and run **signin-cli.py**
+ 7. Enter your phone number (for example 79001002030), api parameters, code and password.
+ 8. Output should look like `{"id": 1, "session": {"session_id": <...>, "auth_key": "<...>"}}`. Save this output as a single string to your clipboard and/or a file. 
+ 
+ *NOTE: this is your authorization data, keep it secret and dont share! Anyone knowing this string can use your Telegram session without a password.*
+ 
+ 9. Connect to streamjson with netcat `nc localhost 1543`
+ 10. Paste the saved output to stdin.
+ 11. Copy and paste the following JSON code to your console: 
  
  ```
  {"message":{"_cons":"messages.getDialogs","offset_date":0,"offset_id":0,"offset_peer":{"_cons":"inputPeerEmpty"},"limit":0}}
  ```
  
- 10. You should receive an answer to your *messages.getDialogs* request with id=1 and client updates with id=0.
+ 12. You should receive an answer to your *messages.getDialogs* request with id=1 and client updates with id=0.
  
  ```
  {"id": 0, "message": {"_cons": "updates", "updates": [{"_cons": "updateNewChannelMessage", "message": {"_cons": "message", "id": ...
@@ -72,7 +75,7 @@ python3.6 -m pip install pyaes
 ...
  ```
  
- 11. Examine *scheme.tl* to learn functions, parameters and types for requests and responses.
+ 13. Read **scheme.tl** to learn functions, parameters and types for requests and responses. More on TL language here: https://core.telegram.org/mtproto/TL
  
 # Detailed description #
 
