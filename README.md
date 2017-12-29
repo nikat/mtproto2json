@@ -22,7 +22,7 @@ You could also start developing your application with **mtproto2json** and switc
 
 ## What is JSON? ##
 
-JSON is a very common and a language-independent data format. Almost every platform, programming language and framework has simple and well-known ways to use JSON objects. JSON objects are human-readable, are much easier test and debug than encrypted binary MTProto objects.
+JSON is a very common and a language-independent data format. Almost every platform, programming language and framework has simple and well-known ways to use JSON objects. JSON objects are human-readable, much easier to test and to debug than encrypted binary MTProto objects.
 
 ## There are libraries implementing MTProto, why would I use mtproto2json? ##
 
