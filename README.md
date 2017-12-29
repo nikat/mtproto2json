@@ -2,23 +2,37 @@
 
 ## What is mtproto2json? ##
 
-**mtproto2json** is a proxy between Telegram client and Telegram API. It uses JSON/TCP to talk to clients and MTProto to talk to Telegram API servers.
+**mtproto2json** is a proxy service between Telegram client and Telegram API. It uses JSON/TCP to talk to clients and MTProto to talk to Telegram API servers.
 
 ## What is Telegram? ##
 
-Telegram is a cloud-based instant messaging service.
+Telegram is a cloud-based instant messaging service. https://telegram.org
 
-## Why would you need a proxy? ##
+## Why would anyone need this proxy? ##
 
-Telegram uses a complicated encryption scheme called MTProto. While it is open and documented, you might want co create a simple utility, a prototype application or to play with new telegram methods without having to implement binary serialization or encryption. 
+Telegram uses a complicated encryption scheme called MTProto. While it is open and documented, you might want to create a simple utility, to prototype an application or just to play with new Telegram API methods without having to implement binary serialization or encryption.
 
-**mtproto2json** does it for you, you only need to establish a TCP connection and a JSON parser to start creating your app.
+More info on MTProto here: https://core.telegram.org/mtproto
+
+**mtproto2json** implements MTProto for you, you only need to establish a TCP connection and a JSON parser to start creating your app.
 
 ## There are libraries implementing MTProto, why would I use mtproto2json? ##
 
-First, **mtproto2json** is not a library, it's a server. You can use it with applications written in any language or framework.
+**mtproto2json** is not a library, it's a service. You can use it with applications written in any language or framework.
 
-Second, the Telegram TL scheme is constantly updated. Libraries are slow to catch with new methods and new features. **mtproto2json** depends on a very small subset of scheme.tl methods and types, so we don't have to rewrite or regenerate the library code to follow **scheme.tl** updates.
+Another reason to use **mtproto2json** over other MTProto implementations is that the Telegram TL scheme is constantly updated. Other libraries are slow to catch with new methods and new features.
+
+**mtproto2json** uses **scheme.tl** dynamically and depends on a very small subset of TL methods and types, so we don't have to rewrite or regenerate the library code to follow **scheme.tl** updates. The only thing you need to update after updating **scheme.tl** is the TL_LAYER parameter in **localsettings.py**.
+
+*More on TL language here: https://core.telegram.org/mtproto/TL*
+
+*The most recent scheme.tl for Telegram can be found here: https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/Resources/scheme.tl*
+
+## License? ##
+
+**mtproto2json** is distributed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 license https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+
+For commercial use please address the author.
 
 # Description # 
 
