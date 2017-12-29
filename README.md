@@ -10,13 +10,11 @@ Telegram is a cloud-based instant messaging service. https://telegram.org
 
 ## Why would anyone need this proxy? ##
 
-Telegram uses a complicated encryption scheme called MTProto. While it is open and documented, you might want to create a simple utility, to prototype an application or just to play with new Telegram API methods without having to implement binary serialization and encryption.
+Telegram uses a complicated encryption scheme called MTProto. While it is open and documented, you might want to create a simple utility, to prototype an application or just to play with new Telegram API methods without having to implement binary serialization and encryption or you could start developing your application with **mtproto2json** and switch to native MTProto implementation later.
 
 More info on MTProto here: https://core.telegram.org/mtproto
 
 **mtproto2json** implements MTProto for you, you only need to establish a JSON/TCP connection to start writing your app and it's usually very easy to do in any language or framework.
-
-For example you can start developing your application with **mtproto2json** and switch to native MTProto implementation later.
 
 ## There are libraries implementing MTProto, why would I use mtproto2json? ##
 
