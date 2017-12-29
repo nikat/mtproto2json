@@ -6,7 +6,7 @@ This utility implements encryption and binary serialization layers of **MTProto*
 
 **client** ⇄ (JSON/TCP) ⇄ **streamjson.py**  ⇄ (MTProto) ⇄ **Telegram**
 
-**streamjson.py** works as a TCP server. It reads and writes JSON objects, one per line. For each client one or multiple MTProto connections to Telegram API are established. JSON objects from clients are serialized into MTProto objects using TL scheme in **scheme.tl**, encrypted and sent to Telegram servers. MTProto objects from Telegram API are unencrypted, deserialized and forwarded to clients as JSON objects. Multiple connections per client and concurrent clients supported, clients don't share MTProto connections or any data.
+**streamjson.py** works as a TCP server, it reads and writes JSON objects separated by newlines. Connections are proxied to Telegram API using MTProto protocol. For each client one or multiple MTProto connections to Telegram API are established. JSON objects from clients are serialized into MTProto objects using TL scheme from **scheme.tl**, encrypted and sent to Telegram servers. MTProto objects from Telegram API are unencrypted, deserialized and forwarded to clients as JSON objects. Multiple connections per client and concurrent clients supported. Clients don't share MTProto connections or any data.
 
 More info on MTProto here: https://core.telegram.org/mtproto
 
@@ -48,10 +48,10 @@ python3.6 -m pip install pyaes
 
  1. If you don't have a Telegram account yet, install one of the official clients at https://telegram.org/apps and create your account. 
  2. Sign in on https://my.telegram.org and obtain **api_id** and **api_hash** as described here: https://core.telegram.org/api/obtaining_api_id.
- 3. Install Python3.6, pyaes, git and netcat
- 4. `git clone https://github.com/nikat/mtproto2json.git`
- 5. Start **streamsjon.py** and let it run
- 6. Open another console and run **signin-cli.py**
+ 3. Install Python3.6, pyaes and netcat
+ 4. Download and unpack mtproto2json using either git or this link: https://github.com/nikat/mtproto2json/archive/master.zip
+ 5. Open a command line, start **streamsjon.py** and let it run
+ 6. Open another command line and run **signin-cli.py**
  7. Enter your phone number (for example 79001002030), api parameters, code and password.
  8. Output should look like `{"id": 1, "session": {"session_id": <...>, "auth_key": "<...>"}}`. Save this output as a single string to your clipboard and/or a file. 
  
