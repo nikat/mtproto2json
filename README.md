@@ -4,7 +4,9 @@
 
 This utility implements encryption and binary serialization layers of **MTProto** client protocol for **Telegram messenger**. It allows developing Telegram client applications in a simple way in any programming language using only a JSON parser and a TCP connection.
 
-**streamjson.py** works as an asynchronous TCP server. It reads and writes JSON objects, one per line. For each client one or multiple MTProto connections to Telegram API are established. JSON objects from clients are serialized into MTProto objects using TL scheme in **scheme.tl**, encrypted and sent to Telegram servers. MTProto objects from Telegram API are unencrypted, deserialized and forwarded to clients as JSON objects. Concurrent clients supported, clients don't share MTProto connections or any data.
+**client** ⇄ (JSON/TCP) ⇄ **streamjson.py**  ⇄ (MTProto) ⇄ **Telegram**
+
+**streamjson.py** works as a TCP server. It reads and writes JSON objects, one per line. For each client one or multiple MTProto connections to Telegram API are established. JSON objects from clients are serialized into MTProto objects using TL scheme in **scheme.tl**, encrypted and sent to Telegram servers. MTProto objects from Telegram API are unencrypted, deserialized and forwarded to clients as JSON objects. Multiple connections per client and concurrent clients supported, clients don't share MTProto connections or any data.
 
 More info on MTProto here: https://core.telegram.org/mtproto
 
