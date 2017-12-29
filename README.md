@@ -2,9 +2,9 @@
 
 # Description #
 
-This utility implements encryption and binary serialization layers of **MTProto** client protocol for **Telegram messenger**.
+This utility implements encryption and binary serialization layers of **MTProto** client protocol for **Telegram messenger**. It allows developing Telegram client applications in a simple way in any programming language using only a JSON parser and a TCP connection.
 
-**streamjson.py** when started works as an asynchronous TCP server. It reads and writes JSON objects, one per line. For each client one or multiple MTProto connections to Telegram API are established. JSON objects from clients are serialized into MTProto objects using TL scheme in **scheme.tl**, encrypted and sent to Telegram servers. MTProto objects from the Telegram servers are unencrypted, deserialized and forwarded to clients as JSON objects. Concurrent clients supported, clients don't share MTProto connections or any data. 
+**streamjson.py** works as an asynchronous TCP server. It reads and writes JSON objects, one per line. For each client one or multiple MTProto connections to Telegram API are established. JSON objects from clients are serialized into MTProto objects using TL scheme in **scheme.tl**, encrypted and sent to Telegram servers. MTProto objects from Telegram API are unencrypted, deserialized and forwarded to clients as JSON objects. Concurrent clients supported, clients don't share MTProto connections or any data.
 
 More info on MTProto here: https://core.telegram.org/mtproto
 
@@ -65,10 +65,11 @@ python3.6 -m pip install pyaes
  10. You should receive an answer to your *messages.getDialogs* request with id=1 and client updates with id=0.
  
  ```
- {"id": 0, "message": {"_cons": "updates", "updates": [{"_cons": "updateNewChannelMessage", "message": {"_cons": "message", "id": /...
- {"id": 0, "message": {"_cons": "updateShort", "update": {"_cons": "updateChatUserTyping", "chat_id": /...
- {"id": 1, "message": {"_cons": "messages.dialogsSlice", "count": 452, "dialogs": [{"_cons": "dialog", "pinned": {"_cons": "true"}, "peer": { /...
-{"id": 0, "message": {"_cons": "updates", "updates": [{"_cons": "updateNewChannelMessage", "message": {"_cons": "message", "id":  /...
+ {"id": 0, "message": {"_cons": "updates", "updates": [{"_cons": "updateNewChannelMessage", "message": {"_cons": "message", "id": ...
+ {"id": 0, "message": {"_cons": "updateShort", "update": {"_cons": "updateChatUserTyping", "chat_id": ...
+ {"id": 1, "message": {"_cons": "messages.dialogsSlice", "count": 452, "dialogs": [{"_cons": "dialog", "pinned": {"_cons": "true"}, "peer": { ...
+{"id": 0, "message": {"_cons": "updates", "updates": [{"_cons": "updateNewChannelMessage", "message": {"_cons": "message", "id":  ...
+...
  ```
  
  11. Examine *scheme.tl* to learn functions, parameters and types for requests and responses.
@@ -164,8 +165,8 @@ Object. Optional, sets and gets server parameters. A response will always contai
     "id" : 100,
     "server": {},
     "message" : {
-        "_cons" : "...",
-        // ...
+        "_cons" : ... ,
+        ...
     }
 }
 ```
@@ -176,7 +177,7 @@ or
     "server": {
         "host": "149.154.167.40",
         "port": 443,
-        "rsa": "-----BEGIN RSA PUBLIC KEY-----\n......"
+        "rsa": "-----BEGIN RSA PUBLIC KEY-----\n ..."
     }
 }
 ```
@@ -218,9 +219,9 @@ from this client. *_seqno* is optional, next odd integer is used when it is omit
 
 *You can always obtain the most recent scheme.tl from Telegram Desktop source code repository: https://github.com/telegramdesktop/tdesktop/blob/master/Telegram/Resources/scheme.tl*
 
-*Please update TL_LAYER in localsettings.py if you choose to replace the TL Scheme with a newer one.*
+*Please update TL_LAYER in localsettings.py if you choose to update the TL Scheme.*
 
-*mtproto2json relies on a very small subset of scheme.tl methods and types so feel free to replace it, most certainly it will work*
+*streamjson.py itself relies on a very small subset of scheme.tl methods and types so feel free to update it, most certainly it will work*
 
 Request example:
 
@@ -264,7 +265,7 @@ For example:
         "_wrapped": {
             "_cons": "initConnection",
             "api_id": 33333,
-            // ...
+            ...
         }
     }
 }
@@ -290,7 +291,7 @@ Rpc error:
     "id" : 104,
     "message": {
         "_cons": "rpc_error",
-        "error_message": "...."
+        "error_message": ...
     }
 }
 ```
@@ -303,7 +304,7 @@ Possible error that came outside of rpc_result
     "message": {
         "_cons": "bad_msg_notification",
         "bad_msg_id": 111222333444,
-        // ...
+        ...
     }
 }
 ```
@@ -315,7 +316,7 @@ If telegram failed to return anything in 10 seconds:
     "id" : 104,
     "message": {
         "_cons": "rpc_timeout",
-        "error_message": "...."
+        "error_message": ...
     }
 }
 ```
@@ -327,7 +328,7 @@ Another possible response:
     "id" : 104,
     "message": {
         "_cons": "namespace.typeFromScheme",
-        "field1": "....",
+        "field1": ... ,
         "field2:": {
             "_cons": "anotherNamespace.anotherTypeFromScheme",
             "field1": ... ,
