@@ -31,6 +31,7 @@ import sys
 import getpass
 import hashlib
 import base64
+import warnings
 
 from localsettings import TL_LAYER
 
@@ -74,7 +75,9 @@ def receive(jstream):
 
 def prompt_string(prompt: str, hide: bool=False):
     if hide:
-        ret = getpass.getpass(prompt=prompt + ' ')
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            ret = getpass.getpass(prompt=prompt + ' ')
     else:
         sys.stderr.write(prompt + ' ')
         sys.stderr.flush()
@@ -108,6 +111,8 @@ if __name__ == "__main__":
                 system_version=command_line_args.system_version,
                 app_version=command_line_args.app_version,
                 lang_code=command_line_args.lang_code,
+                system_lang_code=command_line_args.lang_code,
+                lang_pack='',
                 _wrapped=dict(
                     _cons='auth.sendCode',
                     phone_number=phone_number,
