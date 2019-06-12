@@ -2,11 +2,11 @@
 
 ## What is mtproto2json? ##
 
-**mtproto2json** is a proxy service between Telegram client and Telegram API. It uses JSON/TCP to talk to clients and MTProto to talk to Telegram API servers.
+**mtproto2json** is a prototype proxy service for testing Telegram API (not to be confused with Telegram Bot API, to the countrary Telegram API is what's used by Telegram client apps). It uses JSON/TCP to talk to clients and MTProto to talk to Telegram API servers.
 
 ## What is Telegram? ##
 
-Telegram is a cloud-based instant messaging service. https://telegram.org
+Telegram is a cloud-based instant messaging and social service. https://telegram.org
 
 ## What does this proxy do? ##
 
