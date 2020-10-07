@@ -1,3 +1,9 @@
+## Disclaimer ##
+Please note that with the release of Td::TdJson and MTProto 2.0 this tool has become outdated.
+
+Please use TDLib instead: https://core.telegram.org/tdlib/docs/
+
+
 # FAQ #
 
 ## What is mtproto2json? ##
@@ -470,5 +476,3 @@ Another example:
   }
 }
 ```
-
-*NOTE: mtproto2json will be updated to support MTProto2.0 in Jan 2018.*
