@@ -1,7 +1,7 @@
 ## Disclaimer ##
 Please note that with the release of Td::TdJson and MTProto 2.0 this tool has become outdated.
 
-Please use TDLib instead: https://core.telegram.org/tdlib/docs/
+Please use LL-mtproto instead, it's derived from my code: https://github.com/andrew-ld/LL-mtproto
 
 
 # FAQ #
